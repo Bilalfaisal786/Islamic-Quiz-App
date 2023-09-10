@@ -2,252 +2,263 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amazing Quiz App</title>
-  <style>
- body {
-  font-family: Arial, sans-serif;
-  background-color: #f3f6fc;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f6fc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-.quiz-container {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  width: 100%;
-  text-align: center;
-}
+        .quiz-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333333;
-}
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333333;
+        }
 
-.question {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: #444444;
-}
+        .question {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #444444;
+        }
 
-.options {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-}
+        .options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
 
-.option {
-  margin: 5px;
-  padding: 10px 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  background-color: #f8f9fa;
-  color: #333333;
-}
+        .option {
+            margin: 5px;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color: #f8f9fa;
+            color: #333333;
+        }
 
-.option:hover {
-  background-color: #e9ecef;
-}
+        .option:hover {
+            background-color: #e9ecef;
+        }
 
-.option.selected {
-  background-color: #d1d8e0;
-}
+        .option.selected {
+            background-color: #d1d8e0;
+        }
 
-#submit-button {
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+        #submit-button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-#submit-button:hover {
-  background-color: #0056b3;
-}
+        #submit-button:hover {
+            background-color: #0056b3;
+        }
 
-.result {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 15px;
-}
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
 
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
 
-.popup-content {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 400px;
-  text-align: center;
-  animation: popup-fade 0.3s ease;
-}
+        .popup-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            text-align: center;
+            animation: popup-fade 0.3s ease;
+        }
 
+        @media (max-width: 600px) {
+            .quiz-container {
+                padding: 10px;
+            }
 
-    @media (max-width: 600px) {
-      .quiz-container {
-        padding: 10px;
-      }
+            h1 {
+                font-size: 20px;
+            }
 
-      h1 {
-        font-size: 20px;
-      }
+            .question {
+                font-size: 18px;
+            }
 
-      .question {
-        font-size: 18px;
-      }
+            .option {
+                padding: 8px 15px;
+            }
 
-      .option {
-        padding: 8px 15px;
-      }
+            #submit-button {
+                padding: 8px 15px;
+            }
 
-      #submit-button {
-        padding: 8px 15px;
-      }
-
-      .popup-content {
-        max-width: 300px;
-      }
-    }
-
-
-  </style>
+            .popup-content {
+                max-width: 300px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div class="quiz-container">
-    <h1>Amazing Quiz App</h1>
-    <div class="question" id="question"></div>
-    <div class="options" id="options"></div>
-    <button id="submit-button">Submit Answer</button>
-  </div>
-
-  <div class="popup" id="popup">
-    <div class="popup-content" id="popup-content">
-      <p class="popup-text" id="popup-text"></p>
-      <button class="popup-button" id="popup-button">Close</button>
+    <div class="quiz-container">
+        <h1>Amazing Quiz App</h1>
+        <div class="question" id="question"></div>
+        <div class="options" id="options"></div>
+        <button id="submit-button">Submit Answer</button>
     </div>
-  </div>
 
-  <script>
-    const questions = [
-      {
-        question: " کس پر جماعت سے نماز پڑھنا واجب نہیں ہے؟",
-        options: ["نابینا", "عورت", "نابالغ", "ان سب پر واجب نہیں ہے"],
-        correct: 3
-      },
-      {
-        question: " کتاب نماز کے احکام میں نماز کے کتنے واجبات تحریر ہیں؟",
-        options: ["بیس", "تیس", "چالیس", "پچاس"],
-        correct: 1
-      },
-      {
-        question: "نماز کے کتنے فرائض ہیں؟",
-        options: ["چھ", "سات", "آٹھ", "نو"],
-        correct: 1
-      },
-      {
-        question: "پینٹ فولڈ کر کے نماز پڑھنا کیسا ہے؟",
-        options: ["جائز", "ناجائز", "مباح", "ثواب کا کام"],
-        correct: 1
-      },
-      {
-        question: "کیا ہیرے جبکہ مال تجارت نہ ہو تو اس پر زکوة ہے؟",
-        options: ["فرض ہے", "فرض نہیں ہے"],
-        correct: 1
-      }
-      // Add more questions here
-    ];
+    <div class="popup" id="popup">
+        <div class="popup-content" id="popup-content">
+            <p class="popup-text" id="popup-text"></p>
+            <button class="popup-button" id="popup-button">Close</button>
+        </div>
+    </div>
 
-    let currentQuestion = 0;
-    let score = 0;
+    <script>
+        const questions = [
+            {
+                question: "کس پر جماعت سے نماز پڑھنا واجب نہیں ہے؟",
+                options: ["نابینا", "عورت", "نابالغ", "ان سب پر واجب نہیں ہے"],
+                correct: 3
+            },
+            {
+                question: "کتاب نماز کے احکام میں نماز کے کتنے واجبات تحریر ہیں؟",
+                options: ["بیس", "تیس", "چالیس", "پچاس"],
+                correct: 1
+            },
+            {
+                question: "نماز کے کتنے فرائض ہیں؟",
+                options: ["چھ", "سات", "آٹھ", "نو"],
+                correct: 1
+            },
+            {
+                question: "پینٹ فولڈ کر کے نماز پڑھنا کیسا ہے؟",
+                options: ["جائز", "ناجائز", "مباح", "ثواب کا کام"],
+                correct: 1
+            },
+            {
+                question: "کیا ہیرے جبکہ مال تجارت نہ ہو تو اس پر زکوة ہے؟",
+                options: ["فرض ہے", "فرض نہیں ہے"],
+                correct: 1
+            }
+            // Add more questions here
+        ];
 
-    const questionElement = document.getElementById("question");
-    const optionsElement = document.getElementById("options");
-    const submitButton = document.getElementById("submit-button");
-    const popup = document.getElementById("popup");
-    const popupText = document.getElementById("popup-text");
-    const popupButton = document.getElementById("popup-button");
+        let currentQuestion = 0;
+        let score = 0;
 
-    function loadQuestion() {
-      const question = questions[currentQuestion];
-      questionElement.textContent = question.question;
-      optionsElement.innerHTML = "";
-      question.options.forEach((option, index) => {
-        const optionElement = document.createElement("div");
-        optionElement.classList.add("option");
-        optionElement.textContent = option;
-        optionElement.addEventListener("click", () => selectOption(index));
-        optionsElement.appendChild(optionElement);
-      });
-    }
+        const questionElement = document.getElementById("question");
+        const optionsElement = document.getElementById("options");
+        const submitButton = document.getElementById("submit-button");
+        const popup = document.getElementById("popup");
+        const popupText = document.getElementById("popup-text");
+        const popupButton = document.getElementById("popup-button");
 
-    function selectOption(selectedIndex) {
-      questions[currentQuestion].selected = selectedIndex;
-      const options = optionsElement.querySelectorAll(".option");
-      options.forEach(option => option.classList.remove("selected"));
-      options[selectedIndex].classList.add("selected");
-    }
-
-    function showPopup(message, isCorrect) {
-      popupText.textContent = message;
-      popup.style.backgroundColor = isCorrect ? "#007bff" : "#ff5555";
-      popup.style.display = "flex";
-    }
-
-    function hidePopup() {
-      popup.style.display = "none";
-    }
-
-    function checkAnswer() {
-      if (questions[currentQuestion].selected !== undefined) {
-        const selectedOption = questions[currentQuestion].selected;
-        const correctOption = questions[currentQuestion].correct;
-        const isCorrect = selectedOption === correctOption;
-
-        if (isCorrect) {
-          score++;
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            questionElement.textContent = question.question;
+            optionsElement.innerHTML = "";
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement("div");
+                optionElement.classList.add("option");
+                optionElement.textContent = option;
+                optionElement.addEventListener("click", () => selectOption(index));
+                optionsElement.appendChild(optionElement);
+            });
         }
 
-        const message = isCorrect ? "Correct answer!" : "Incorrect answer!";
-        showPopup(message, isCorrect);
-
-        currentQuestion++;
-
-        if (currentQuestion < questions.length) {
-          loadQuestion();
+        function selectOption(selectedIndex) {
+            questions[currentQuestion].selected = selectedIndex;
+            const options = optionsElement.querySelectorAll(".option");
+            options.forEach(option => option.classList.remove("selected"));
+            options[selectedIndex].classList.add("selected");
         }
-      }
-    }
 
-    submitButton.addEventListener("click", checkAnswer);
-    popupButton.addEventListener("click", hidePopup);
-    loadQuestion();
-  </script>
+        function showPopup(message, isCorrect) {
+            popupText.textContent = message;
+            popup.style.backgroundColor = isCorrect ? "#007bff" : "#ff5555";
+            popup.style.display = "flex";
+        }
+
+        function hidePopup() {
+            popup.style.display = "none";
+        }
+
+        function checkAnswer() {
+            if (questions[currentQuestion].selected !== undefined) {
+                const selectedOption = questions[currentQuestion].selected;
+                const correctOption = questions[currentQuestion].correct;
+                const isCorrect = selectedOption === correctOption;
+
+                if (isCorrect) {
+                    score++;
+                }
+
+                const message = isCorrect ? "Correct answer!" : "Incorrect answer!";
+                showPopup(message, isCorrect);
+
+                currentQuestion++;
+
+                if (currentQuestion < questions.length) {
+                    loadQuestion();
+                }
+                else {
+                    showResults();
+                }
+            }
+        }
+
+        function showResults() {
+            questionElement.textContent = "Quiz Finished!";
+            optionsElement.innerHTML = "";
+
+            const resultsElement = document.createElement("div");
+            resultsElement.classList.add("result");
+            resultsElement.textContent = `Total Score: ${(score / questions.length * 100).toFixed(2)}%`;
+            optionsElement.appendChild(resultsElement);
+            submitButton.style.display = "none";
+        }
+
+        submitButton.addEventListener("click", checkAnswer);
+        popupButton.addEventListener("click", hidePopup);
+        loadQuestion();
+    </script>
 </body>
 
 </html>
